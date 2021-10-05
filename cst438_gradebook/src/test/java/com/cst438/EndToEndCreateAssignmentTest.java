@@ -108,7 +108,7 @@ public class EndToEndCreateAssignmentTest {
 			// verify that assignment has been added
 			Assignment a = assignmentRepository.findByName(TEST_ASSIGNMENT_NAME).get(0);
 			assertEquals(TEST_ASSIGNMENT_NAME, a.getName());
-			assertEquals(Date.valueOf(TEST_ASSIGNMENT_NAME), a.getDueDate());
+			assertEquals(99999, a.getCourse().getCourse_id());
 
 		} catch (Exception ex) {
 			throw ex;
