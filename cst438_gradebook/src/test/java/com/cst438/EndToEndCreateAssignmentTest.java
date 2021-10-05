@@ -31,13 +31,13 @@ public class EndToEndCreateAssignmentTest {
 
 	public static final String CHROME_DRIVER_FILE_LOCATION = "C:/chromedriver_win32/chromedriver.exe";
 
-	public static final String URL = "http://localhost:3000";
+	public static final String URL = "https://sewilson-cst438grade-fe.herokuapp.com/";
 	public static final String TEST_USER_EMAIL = "test@csumb.edu";
 	public static final String TEST_INSTRUCTOR_EMAIL = "dwisneski@csumb.edu";
 	public static final int SLEEP_DURATION = 1000; // 1 second.
 	
 	public static final String TEST_ASSIGNMENT_NAME = "Test Assignment";
-	public static final String TEST_ASSIGNMENT_DATE = "2021-10-5";
+	public static final String TEST_ASSIGNMENT_DATE = "2021-10-05";
 
 	@Autowired
 	EnrollmentRepository enrollmentRepository;
@@ -94,15 +94,15 @@ public class EndToEndCreateAssignmentTest {
 			Thread.sleep(SLEEP_DURATION);
 			
 			// Locate text fields and enter the data
-			WebElement we = driver.findElement(By.xpath("//textfield[@name='course_id']"));
+			WebElement we = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[1]/div/input"));
 			we.sendKeys("99999");
-			we = driver.findElement(By.xpath("//textfield[@name='name']"));
+			we = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[2]/div/input")); 
 			we.sendKeys(TEST_ASSIGNMENT_NAME);
-			we = driver.findElement(By.xpath("//textfield[@name='date']"));
+			we = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[3]/div/input"));
 			we.sendKeys(TEST_ASSIGNMENT_DATE);
 			
 			// Locate submit button and click
-			driver.findElement(By.xpath("//button[span='Submit']")).click();
+			driver.findElement(By.xpath("/html/body/div/div/div/div[1]/button/span[1]")).click();
 			Thread.sleep(SLEEP_DURATION);
 
 			// verify that assignment has been added
