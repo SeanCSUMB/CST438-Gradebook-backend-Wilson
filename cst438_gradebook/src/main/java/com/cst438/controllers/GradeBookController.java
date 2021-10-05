@@ -28,7 +28,7 @@ import com.cst438.domain.CourseDTOG;
 import com.cst438.domain.CourseRepository;
 import com.cst438.domain.Enrollment;
 import com.cst438.domain.GradebookDTO;
-import com.cst438.services.RegistrationService;
+//import com.cst438.services.RegistrationService;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:3000", "https://sewilson-cst438grade-fe.herokuapp.com/"})
@@ -43,8 +43,8 @@ public class GradeBookController {
 	@Autowired
 	CourseRepository courseRepository;
 	
-	@Autowired
-	RegistrationService registrationService;
+	//@Autowired
+	//RegistrationService registrationService;
 	
 	// get assignments for an instructor that need grading
 	@GetMapping("/gradebook")
@@ -92,6 +92,7 @@ public class GradeBookController {
 		return gradebook;
 	}
 	
+	/*
 	@PostMapping("/course/{course_id}/finalgrades")
 	@Transactional
 	public void calcFinalGrades(@PathVariable int course_id) {
@@ -125,7 +126,7 @@ public class GradeBookController {
 		}
 		registrationService.sendFinalGrades(course_id, cdto);
 	}
-	
+	*/
 	private String letterGrade(double grade) {
 		if (grade >= 90) return "A";
 		if (grade >= 80) return "B";
